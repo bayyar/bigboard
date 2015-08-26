@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Board</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="bb.js" type="text/javascript" ></script>
+  <style>
+	.vertical-align {
+    	display: flex;
+    	align-items: center;
+	}
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row-fluid vertical-align">
+  	<!-- Header -->
+  	<div class="col-md-6">
+  		<h2>Draft Big Board<small>
+  		<br>Based on Evan Silva's <a href="http://www.rotoworld.com/articles/nfl/55688/57/silvas-august-top-200">Fantasy Top 200</a></small></h2>
+  	</div>
+  	<!-- Scoring and Instructions-->
+  	<div class="col-md-6" align="right">
+  		<h6>Picks: <span class="picks">0</span> <span class="pickTypes">(RB: 0, WR: 0, TE: 0, QB: 0)</span></h6>
+  		<h6>Value Over Average: <span class="voa">0</span></h6>
+  	  	<h6><a data-toggle="modal" data-target="#myModal">(How Do I Use This?)</a></h6>
+  	</div>
+  </div>
+  <!-- Big Board -->
+  <div class="row-fluid">
+  <table class="table table-striped" id="bigBoard">
+  	<thead>
+  		<tr>
+  			<th>Round</th>
+  			<th>RB</th>
+  			<th>WR</th>
+  			<th>TE</th>
+  			<th>QB</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  	</tbody>
+  </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">How to Big Board</h4>
+      </div>
+      <div class="modal-body">
+      	<button type="button" class="btn btn-default" id="flag"><span class="glyphicon glyphicon-flag"</span></button> Flag your target players<br><br>
+        <button type="button" class="btn btn-default mdl" id="yes"><span class="glyphicon glyphicon-ok"</span></button> Check your successfully drafted players<br><br>
+        <button type="button" class="btn btn-default" id="player">(5) Rob Gronkowski</button> Eliminate players drafted by others<br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
