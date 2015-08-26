@@ -40,7 +40,7 @@ $.getJSON(url, function(data) {
     });
 	
 	function createButtonSet(name, position, rank) {
-		return '<button type="button" class="btn btn-default" id="yes" data-rank="'+rank+'" data-position="'+position+'"><span class="glyphicon glyphicon-ok"</span></button><button type="button" class="btn btn-default" id="flag"><span class="glyphicon glyphicon-flag"</span></button><button type="button" class="btn btn-default" id="player">(' + rank + ') ' + name + '</button><br />'
+		return '<span class="parent"><button type="button" class="btn btn-default" id="yes" data-rank="'+rank+'" data-position="'+position+'"><span class="glyphicon glyphicon-ok"</span></button><button type="button" class="btn btn-default" id="flag"><span class="glyphicon glyphicon-flag"</span></button><button type="button" class="btn btn-default" id="player">(' + rank + ') ' + name + '</button></span><br />'
 	};
 
 
@@ -59,18 +59,17 @@ var picks = 0, curValue = 0, voa = 0;
 var numRb = 0, numWr = 0, numTe = 0, numQb = 0;
 var avgValue = {0:0,1:6.5,2:25,3:55.5,4:98,5:152.5,6:219,7:297.5,8:388,9:490.5,10:605,11:731.5,12:870,13:1020.5,14:1183,15:1357.5,16:1544,17:1742.5};
 
-$(document).on('click', '#player.btn-default', function () {  
-    $(this).removeClass('btn-default');
-    $(this).addClass('chosen');
+$(document).on('click', '#player.btn-default', function () {
+    $(this).parent().children().removeClass('btn-default').addClass('chosen');  
 });
 
-$(document).on('click', '#player.btn.chosen', function () {  
-    $(this).removeClass('chosen');
-    $(this).addClass('btn-default');
+$(document).on('click', '#player.btn.chosen', function () {
+    $(this).parent().children().removeClass('chosen').addClass('btn-default');  
 });
 
 $(document).on('click', '#flag.btn-default', function () {  
     $(this).toggleClass('btn-danger', 'btn-default');
+    $(this).siblings('#player').toggleClass('btn-danger', 'btn-default');
 });
 
 $(document).on('click', '#yes.btn-default', function () {
