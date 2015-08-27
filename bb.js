@@ -88,6 +88,10 @@ $(document).on('click', '#flag.btn-default', function () {
 $(document).on('click', '#yes.btn-default', function () {
 	if ($(this).hasClass("mdl")) {
 		$(this).toggleClass('btn-success', 'btn-default');
+        if ($(this).siblings('#flag').hasClass('btn-danger')) {
+            $(this).siblings().removeClass('btn-danger').addClass('btn-success prev-flagged');
+        }
+        $(this).parent().children().removeClass('btn-default').addClass('btn-success');
 	} else {
         if ($(this).siblings('#flag').hasClass('btn-danger')) {
             $(this).siblings().removeClass('btn-danger').addClass('btn-success prev-flagged');
@@ -101,6 +105,10 @@ $(document).on('click', '#yes.btn-default', function () {
 $(document).on('click', '#yes.btn-success', function () {
 	if ($(this).hasClass('mdl')) {
         $(this).toggleClass('btn-success', 'btn-default');
+        if ($(this).siblings('#flag').hasClass('prev-flagged')) {
+            $(this).siblings().removeClass('btn-success prev-flagged').addClass('btn-danger');
+        }
+        $(this).parent().children().removeClass('btn-success').addClass('btn-default');        
 	}  else {
         if ($(this).siblings('#flag').hasClass('prev-flagged')) {
             $(this).siblings().removeClass('btn-success prev-flagged').addClass('btn-danger');
