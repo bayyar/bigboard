@@ -61,8 +61,10 @@ var avgValue = {0:0,1:6.5,2:25,3:55.5,4:98,5:152.5,6:219,7:297.5,8:388,9:490.5,1
 
 // Grey out selected player
 $(document).on('click', '#player.btn-default', function () {
-    if ($(this).siblings('#flag').hasClass('btn-danger'))
+    if ($(this).siblings('#flag').hasClass('btn-danger')) {
         $(this).siblings('#flag').removeClass('btn-danger').addClass('prev-flagged');
+        $(this).removeClass('btn-danger').addClass('prev-flagged');
+    }
     else if ($(this).siblings('#yes').hasClass('btn-success')) {
         $(this).siblings('#yes').removeClass('btn-success').addClass('prev-yes');
     }
@@ -71,8 +73,10 @@ $(document).on('click', '#player.btn-default', function () {
 
 // Ungrey unselected player
 $(document).on('click', '#player.btn.chosen', function () {
-    if ($(this).siblings('#flag').hasClass('prev-flagged'))
+    if ($(this).siblings('#flag').hasClass('prev-flagged')) {
         $(this).siblings('#flag').removeClass('prev-flagged').addClass('btn-danger');
+        $(this).removeClass('prev-flagged').addClass('btn-danger');
+    }
     else if ($(this).siblings('#yes').hasClass('prev-yes'))
         $(this).siblings('#yes').removeClass('prev-yes').addClass('btn-success');
     $(this).parent().children().removeClass('chosen').addClass('btn-default');  
